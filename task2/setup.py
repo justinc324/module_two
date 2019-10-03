@@ -1,4 +1,5 @@
 import serial
+import platform
 from psonic import *
 from threading import Thread, Condition, Event
 
@@ -16,4 +17,8 @@ PIANO_MODE = b'1\r\n'
 
 change_mode_cmds = {DRUM_MODE, PIANO_MODE}
 
-ser = serial.Serial('/dev/cu.SLAB_USBtoUART', 9600)
+# grab the correct serial port for Mac or Linux
+if platform.system() is 'Darwin':
+    ser = serial.Serial('/dev/cu.SLAB_USBtoUART', 9600)
+else:
+    ser = serial.Serial('/dev/ttyUSB0', 9600)
