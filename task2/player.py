@@ -5,7 +5,10 @@ i = 0
 
 drum = Drum()
 piano = Piano()
-modes = ["DRUMS_MODE", "PIANO_MODE", "place", "place"]
+bells = BellSynth()
+bass = Bass()
+sampler = Sampler()
+modes = ["DRUMS_MODE", "PIANO_MODE", "BELLS_MODE", "SAMPLER_MODE", "BASS_MODE"]
 
 curr_mode = modes[0]
 
@@ -24,6 +27,18 @@ while True:
 
 			elif command == PIANO_MODE:
 				curr_mode = modes[1]
+				i = 0
+
+			elif command == BELLS_MODE:
+				curr_mode = modes[2]
+				i = 0
+
+			elif command == SAMPLER_MODE:
+				curr_mode = modes[3]
+				i = 0
+
+			elif command == BASS_MODE:
+				curr_mode = modes[4]
 				i = 0
 
 			print(curr_mode)
@@ -60,12 +75,67 @@ while True:
 					print("start")
 				ser.flushInput()
 
-			# switch between piano notes
+			# switch between piano samples
 			elif command == RIGHT:
 				i = (i + 1) % piano.num
 				print(i)
 			elif command == LEFT:
 				if i == 0:
 					i = piano.num - 1
+				else: i -= 1
+				print(i)
+
+		elif curr_mode is "BELLS_MODE":
+			if command == BUTTON_PRESSED:
+
+				if bells.is_looping:
+					bells.stop_loop()
+					print("Stop")
+				else:
+					bells.start_loop(i)
+					print("start")
+				ser.flushInput()
+
+			# switch between bell notes
+			elif command == RIGHT:
+				i = (i + 1) % bells.num
+				print(i)
+			elif command == LEFT:
+				if i == 0:
+					i = bells.num - 1
+				else: i -= 1
+				print(i)
+
+		elif curr_mode is "SAMPLER_MODE":
+			if command == BUTTON_PRESSED:
+
+				sampler.play(i)
+				print("sampler play")
+				ser.flushInput()
+
+			# switch between piano notes
+			elif command == RIGHT:
+				i = (i + 1) % sampler.num
+				print(i)
+			elif command == LEFT:
+				if i == 0:
+					i = sampler.num - 1
+				else: i -= 1
+				print(i)
+
+		elif curr_mode is "BASS_MODE":
+			if command == BUTTON_PRESSED:
+
+				bass.play(i)
+				print("bass play")
+				ser.flushInput()
+
+			# switch between piano notes
+			elif command == RIGHT:
+				i = (i + 1) % bass.num
+				print(i)
+			elif command == LEFT:
+				if i == 0:
+					i = bass.num - 1
 				else: i -= 1
 				print(i)

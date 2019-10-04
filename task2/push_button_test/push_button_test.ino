@@ -84,7 +84,7 @@ void loop() {
   switch_state = digitalRead(Switch);
   if (switch_state == LOW && switch_state != prev_state) {
     
-    mode = (mode + 1) % 3;
+    mode = (mode + 1) % 5;
     Serial.println(mode);
     
     prev_state = LOW;
@@ -93,7 +93,7 @@ void loop() {
 
    if (switch_state == HIGH && switch_state != prev_state) {
     
-    mode = (mode + 1) % 3;
+    mode = (mode + 1) % 5;
     Serial.println(mode);
     
     prev_state = HIGH;
