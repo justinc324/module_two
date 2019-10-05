@@ -1,6 +1,8 @@
 # Music Box
 Hi! Thanks for checking this out. While most digital instruments require some baseline knowledge of music to make something decent, I wanted to make something nice and simple anybody could pick up and play! My music box allows a user to create and stack a few different loops and play samples on top of them! In particular there are drum, piano, and bell synethizer loops to pick from (around 4-5 of each), and there are ~7 bass samples and ~6 audio samples to play with. Operation is pretty simple - the switch controls the instrument the user is currently on, the joystick can be flicked left/right to switch between sample, and the button is used to start/stop loops and play samples. Requires a headset or speakers, as well as a power connection.
 
+![f](IMG_1157.jpg)
+
 ## Setup
 
 ### Necessary Hardware
@@ -12,6 +14,35 @@ Hi! Thanks for checking this out. While most digital instruments require some ba
 - Breadboard
 - LOTS of various male/female wires
 - 10M Ohm resistor
+
+#### Hardware Setup
+
+Here is an approximate hookup guide (note that I used an ESP32, so the wiring ports are a bit different):
+![Here is an approximate hookup guide](hookup_guide.png) 
+
+Here is a picture of my actual setup:
+![Actual](IMG_1156(1).jpg)
+
+##### Analog Joystick
+- GND: Connected directly to the ESP32 GND. 
+- +5V: Connected directly to the ESP32 5V. 
+- VRX: Connected to the ESP32 I/O pin 26.
+- VRY: Connected to the ESP32 I/O pin 27.
+- SW: Not in use.
+
+#### SPST Switch
+- One tab wired to GND on breadboard, the other tab wired to the ESP32 I/O pin 17 (either directly or via another wire from the breadboard).
+
+#### Momentary push button
+- One tab: wired to GND on the breadboard
+- Other tab: wired to the breadboard, in a row that is wired to 3.3v via the 10M Ohm resistor and connected via a wire to the ESP32 I/O pin 15.
+
+#### Breadboard
+- Wire a GND row to the ESP32 GND.
+- Wire a power row to the ESP32 3.3v.
+
+#### ESP32
+- Conncected to the Raspberry Pi via USB.
 
 ### Software to Install
 
