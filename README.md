@@ -1,6 +1,8 @@
 # Music Box
 Hi! Thanks for checking this out. While most digital instruments require some baseline knowledge of music to make something decent, I wanted to make something nice and simple anybody could pick up and play! My music box allows a user to create and stack a few different loops and play samples on top of them! In particular there are drum, piano, and bell synethizer loops to pick from (around 4-5 of each), and there are ~7 bass samples and ~6 audio samples to play with. Operation is pretty simple - the switch controls the instrument the user is currently on, the joystick can be flicked left/right to switch between sample, and the button is used to start/stop loops and play samples. Requires a headset or speakers, as well as a power connection.
 
+[A link to my box in action.](https://www.youtube.com/watch?v=_avr9MZA8TA)
+
 ![f](IMG_1157.jpg)
 
 ## Setup
