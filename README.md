@@ -23,7 +23,7 @@ Here is an approximate hookup guide (note that I used an ESP32, so the wiring po
 ![Here is an approximate hookup guide](hookup_guide.png) 
 
 Here is a picture of my actual setup:
-![Actual](IMG_1156(1).jpg)
+![Actual](IMG_1156_(1).jpg)
 
 ##### Analog Joystick
 - GND: Connected directly to the ESP32 GND. 
